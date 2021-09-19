@@ -1,0 +1,43 @@
+@import './reset.css';
+$bg: #f7f2f2;
+$black: #0d1117;
+$blue: #98d0ff;
+$pink: #ffc6d7;
+body {
+    background-color: $bg;
+    padding: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Raleway', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $black;
+}
+
+.wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+input[type='submit'] {
+    outline: none;
+    width: max-content;
+    border-radius: 10000px;
+    border: 0;
+    background-color: #98d0ff;
+    font-size: 16px;
+    padding: 10px 15px;
+    font-family: 'Raleway', sans-serif;
+    transition: .2s ease-in;
+    color: #fff;
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.5);
+    transition: .2s cubic-bezier(0, 0, .5, 1);
+    &:hover,
+    &:focus {
+        box-shadow: 0px 0px 0px 5px rgba(152, 208, 255, .5);
+    }
+}
+
+@media screen and (max-width: 768px) {
+ body {
+     padding: 25px;
+ }
+}
