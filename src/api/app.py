@@ -105,7 +105,9 @@ class TokensStorage:
 
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="/static"), name="static")
+
+
+app.mount("/static", StaticFiles(directory="src/api/static"), name="static")
 storage = TokensStorage()
 
 
