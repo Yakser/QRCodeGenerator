@@ -116,7 +116,7 @@ static_root_absolute = project_root_absolute
 
 app.mount("/static", StaticFiles(directory=str(static_root_absolute) + '\static'), name="static")
 storage = TokensStorage()
-
+ 
 
 async def clean_storage(token):
     await storage.find_and_delete(token)
