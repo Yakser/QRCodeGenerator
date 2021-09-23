@@ -8,7 +8,7 @@ const Menu = (props) => {
         <span>Generate</span>
       </div>
       <div className={styles.item}>
-        <span>History</span>
+        <span>Usage</span>
       </div>
       <div className={styles.item}>
         <span>About</span>

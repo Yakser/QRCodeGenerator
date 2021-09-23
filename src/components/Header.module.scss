@@ -17,6 +17,12 @@ button {
     outline: none;
     font-size: 20px;
     cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 10000px;
+    transition: .2s ease-in;
+    &:hover {
+        opacity: .5;
+    }
 }
 
 @media screen and (max-width: 768px) {

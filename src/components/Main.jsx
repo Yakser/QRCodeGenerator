@@ -14,11 +14,15 @@ const Main = (props) => {
   async function onGenerateCode() {
     try {
       const obj = await axios.get("/api/generate?text=" + textValue);
-      const token = obj.data.token;
-      console.log(`../img/qr-code${token}.png`);
-      setQrCodeSrc(`http://127.0.0.1:5000/static/qr-code${token}.png`);
+      if (obj.data.message === "ok") {
+        const token = obj.data.token;
+        setQrCodeSrc(`http://127.0.0.1:5000/static/qr-code-${token}.png`);
+      } else {
+        // TODO
+        throw "Code generation error";
+      }
     } catch {
-      alert('Code generation failed')
+      alert("Code generation failed");
     }
   }
 
@@ -33,7 +37,7 @@ const Main = (props) => {
         </div>
       </div>
     </main>
-  )
+  );
 };
 
 export default Main;

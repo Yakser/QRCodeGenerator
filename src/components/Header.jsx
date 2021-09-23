@@ -1,8 +1,7 @@
-import styles from './Header.module.scss';
-import Menu from './Menu';
+import styles from "./Header.module.scss";
+import Menu from "./Menu";
 
 const Header = (props) => {
-
   return (
     <header>
       <div className={styles.logo}>
