@@ -1,2 +1,2 @@
 # QRCodeGenerator
-QR-code generator built with React and Flask.
+QR-code generator built with React and FastAPI.
