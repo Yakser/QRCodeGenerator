@@ -114,7 +114,7 @@ project_root = current_file_dir.parent
 project_root_absolute = project_root.resolve()
 static_root_absolute = project_root_absolute
 
-app.mount("/static", StaticFiles(directory=str(static_root_absolute) + '\static'), name="static")
+app.mount("/static", StaticFiles(directory=str(static_root_absolute) + '/static'), name="static")
 storage = TokensStorage()
  
 
