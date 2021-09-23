@@ -115,7 +115,7 @@ app = FastAPI()
 # project_root_absolute = project_root.resolve()
 # static_root_absolute = project_root_absolute
 
-app.mount("/static", StaticFiles(directory='./static'), name="static")
+app.mount("/static", StaticFiles(directory='./src/api/static'), name="static")
 storage = TokensStorage()
  
 
@@ -150,5 +150,5 @@ async def generate_page(background_tasks: BackgroundTasks, text: str):
         return {'message': 'error'}
 
 
-if __name__ == '__main__':
-   uvicorn.run('app:app', host="0.0.0.0", port=5000)
+# if __name__ == '__main__':
+#    uvicorn.run('app:app', host="0.0.0.0", port=5000)
