@@ -114,7 +114,7 @@ app = FastAPI()
 # project_root_absolute = project_root.resolve()
 # static_root_absolute = project_root_absolute
 
-app.mount("/static", StaticFiles(directory='api/src/static'), name="static")
+app.mount("/static", StaticFiles(directory='src/api/static'), name="static")
 storage = TokensStorage()
  
 
