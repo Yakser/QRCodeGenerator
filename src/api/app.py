@@ -1,7 +1,7 @@
-import asyncio
+import uvicorn
 from fastapi import BackgroundTasks, FastAPI
 from fastapi.staticfiles import StaticFiles
-import uvicorn
+
 from constants import BASE_URL
 from tokens_storage import TokensStorage
 
@@ -11,7 +11,6 @@ storage = TokensStorage()
 
 
 async def clean_storage(token):
-    # await asyncio.sleep(5)
     await storage.find_and_delete(token)
 
 
@@ -25,6 +24,6 @@ async def generate_page(background_tasks: BackgroundTasks, text: str):
         print(e)
         return {'message': 'error'}
 
+
 if __name__ == '__main__':
     uvicorn.run(app, port='5000', host='127.0.0.1')
-    

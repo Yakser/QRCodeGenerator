@@ -19,7 +19,7 @@ const Main = (props) => {
         setQrCodeSrc(`http://127.0.0.1:5000/static/qr-code-${token}.png`);
       } else {
         // TODO
-        throw "Code generation error";
+        throw new Error("Code generation error");
       }
     } catch {
       alert("Code generation failed");
