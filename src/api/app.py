@@ -1,3 +1,4 @@
+from pathlib import Path
 import qrcode
 import asyncio
 import os
@@ -107,7 +108,13 @@ class TokensStorage:
 app = FastAPI()
 
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+current_file = Path(__file__)
+current_file_dir = current_file.parent
+project_root = current_file_dir.parent
+project_root_absolute = project_root.resolve()
+static_root_absolute = project_root_absolute
+
+app.mount("/static", StaticFiles(directory=str(static_root_absolute) + '\static'), name="static")
 storage = TokensStorage()
 
 
