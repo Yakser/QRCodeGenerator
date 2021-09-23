@@ -5,7 +5,7 @@ from datetime import datetime
 
 import qrcode
 
-from constants import FILE_PATH
+from .constants import FILE_PATH
 
 
 class TokensStorage:

@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import BackgroundTasks, FastAPI
 from fastapi.staticfiles import StaticFiles
 
-from constants import BASE_URL
+from .constants import BASE_URL
 from tokens_storage import TokensStorage
 
 app = FastAPI()
