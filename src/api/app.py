@@ -108,13 +108,13 @@ class TokensStorage:
 app = FastAPI()
 
 
-current_file = Path(__file__)
-current_file_dir = current_file.parent
-project_root = current_file_dir.parent
-project_root_absolute = project_root.resolve()
-static_root_absolute = project_root_absolute
+# current_file = Path(__file__)
+# current_file_dir = current_file.parent
+# project_root = current_file_dir.parent
+# project_root_absolute = project_root.resolve()
+# static_root_absolute = project_root_absolute
 
-app.mount("/static", StaticFiles(directory=str(static_root_absolute) + '/static'), name="static")
+app.mount("/static", StaticFiles(directory='api/src/static'), name="static")
 storage = TokensStorage()
  
 
