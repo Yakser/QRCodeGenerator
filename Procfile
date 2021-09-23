@@ -1,0 +1,1 @@
+web uvicorn src/api/app:app
