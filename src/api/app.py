@@ -109,14 +109,15 @@ app = FastAPI()
 # current_file_dir = current_file.parent
 # project_root = current_file_dir.parent
 # project_root_absolute = project_root.resolve()
-# static_root_absolute = project_root_absolute
+# static_root_absolute = project_root_absolute  ./src/api/static'
 
 app.mount("/static", StaticFiles(directory='./src/api/static'), name="static")
 storage = TokensStorage()
  
 origins = [
-    "http://0.0.0.0:3000",
-    "0.0.0.0:3000"
+    "http://localhost:3000",
+    "https://localhost:3000",
+    "localhost:3000"
 ]
 
 
