@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 import qrcode
 import asyncio
@@ -114,9 +115,25 @@ app = FastAPI()
 # project_root_absolute = project_root.resolve()
 # static_root_absolute = project_root_absolute
 
-app.mount("/static", StaticFiles(directory='src/api/static'), name="static")
+app.mount("/static", StaticFiles(directory='static'), name="static")
 storage = TokensStorage()
  
+
+app = FastAPI()
+
+origins = [
+    "http://localhost:3000",
+    "localhost:3000"
+]
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 async def clean_storage(token):
     await storage.find_and_delete(token)
@@ -134,4 +151,4 @@ async def generate_page(background_tasks: BackgroundTasks, text: str):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, port='5000', host='127.0.0.1')
+   uvicorn.run("app:app", host="0.0.0.0", port=5000)
