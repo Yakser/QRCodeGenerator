@@ -1,17 +1,18 @@
 from tokens_storage import TokensStorage
 from fastapi.middleware.cors import CORSMiddleware
 import asyncio
+import os
 from uvicorn import Server, Config
 from fastapi import BackgroundTasks, FastAPI
 from fastapi.staticfiles import StaticFiles
 
 # from api.constants import BASE_URL
 
+os.putenv('PORT', 5000)
 BASE_URL = '/api'
 FILE_PATH = 'static/qr-code-'
 
 app = FastAPI()
-
 loop = asyncio.get_event_loop()
 
 app.mount("/static", StaticFiles(directory='./static'), name="static")
