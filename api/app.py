@@ -5,11 +5,13 @@ import os
 from uvicorn import Server, Config
 from fastapi import BackgroundTasks, FastAPI
 from fastapi.staticfiles import StaticFiles
+
 # from api.constants import BASE_URL
 
-os.putenv('PORT', 5000)
 BASE_URL = '/api'
 FILE_PATH = 'static/qr-code-'
+PORT = os.environ.get('PORT')
+
 
 app = FastAPI()
 loop = asyncio.get_event_loop()
@@ -47,7 +49,7 @@ async def generate_page(background_tasks: BackgroundTasks, text: str):
         return {'message': 'error'}
 
 
-config = Config(app=app, host='0.0.0.0', port=5000, loop=loop)
+config = Config(app=app, host='0.0.0.0', port=PORT, loop=loop)
 server = Server(config)
 loop.run_until_complete(server.serve())
 
