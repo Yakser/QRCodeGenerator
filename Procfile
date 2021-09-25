@@ -1,1 +1,1 @@
-web: uvicorn api.app:app --host=0.0.0.0
+web: gunicorn -w 4 -k uvicorn.workers.UvicornWorker api.app:app
