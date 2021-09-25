@@ -5,7 +5,6 @@ import os
 from uvicorn import Server, Config
 from fastapi import BackgroundTasks, FastAPI
 from fastapi.staticfiles import StaticFiles
-
 # from api.constants import BASE_URL
 
 os.putenv('PORT', 5000)
