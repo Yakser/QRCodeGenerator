@@ -5,7 +5,7 @@ from datetime import datetime
 
 import qrcode
 
-FILE_PATH = 'static/qr-code-'
+FILE_PATH = './api/static/qr-code-'
 
 
 class TokensStorage:
@@ -51,7 +51,7 @@ class TokensStorage:
             return token
 
         except Exception as e:
-            print(e)
+            print('Error:', e)
 
     def __add(self, token: str):
         """[Adds QR-code token with current time (in seconds) into storage]
@@ -69,11 +69,11 @@ class TokensStorage:
             index (int): [Index of QR-code token]
         """
         try:
-            os.remove(f'./static/qr-code-{self.__tokens[index][0]}.png')
+            os.remove(FILE_PATH + f'{self.__tokens[index][0]}.png')
             del self.__tokens[index]
 
         except Exception as e:
-            print(e)
+            print('Error:',  e)
 
     async def find_and_delete(self, token: str):
         """[Finds QR-code by token and deletes it with delay]

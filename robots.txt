@@ -1,0 +1,35 @@
+User-agent: *
+
+Allow: /.css
+
+Allow: /.js
+
+Allow: /.jpg
+
+Allow: /.jpeg
+
+Allow: /.png
+
+Allow: /.gif
+
+Disallow: /utm_
+
+Disallow: /favorites
+
+Disallow: /?size=
+Disallow: /?from=
+Disallow: /?promote=
+
+Disallow: /price_min=*
+
+Disallow: /area_min=
+
+Disallow: /floor_number_min=
+
+Disallow: /ordering=price
+
+Disallow: /ordering=area
+
+Disallow: /month=
+
+Sitemap: sitemap.xml

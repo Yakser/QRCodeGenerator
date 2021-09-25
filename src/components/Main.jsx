@@ -28,7 +28,7 @@ const Main = (props) => {
 
   return (
     <main className={styles.main}>
-      <h2>Generate your own QR-code</h2>
+      <h2>Generate QR-code</h2>
       <div className={styles.inputBlock}>
         <div className={styles.preview}>
           <img src={qrCodeSrc} alt="" />

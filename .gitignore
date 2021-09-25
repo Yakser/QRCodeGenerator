@@ -1,7 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # venv
-/src/api/venv
+venv
+
+# cache
+
+__pycache__
 
 # dependencies
 /node_modules
