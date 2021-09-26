@@ -23,8 +23,8 @@ const Main = (props) => {
         // TODO
         throw new Error("Code generation error");
       }
-    } catch {
-      alert("Code generation failed");
+    } catch(e) {
+      alert(`Code generation failed ${e}`);
     }
   }
 
