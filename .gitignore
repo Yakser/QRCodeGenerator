@@ -2,7 +2,7 @@
 
 # venv
 venv
-
+/api
 # cache
 
 __pycache__
