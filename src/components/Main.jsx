@@ -16,7 +16,9 @@ const Main = (props) => {
       const obj = await axios.get("/api/generate?text=" + textValue);
       if (obj.data.message === "ok") {
         const token = obj.data.token;
-        setQrCodeSrc(`http://127.0.0.1:5000/static/qr-code-${token}.png`);
+        setQrCodeSrc(
+          `https://react-qr-code-api.herokuapp.com/static/qr-code-${token}.png`
+        );
       } else {
         // TODO
         throw new Error("Code generation error");
