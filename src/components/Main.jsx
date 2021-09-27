@@ -15,8 +15,8 @@ const Main = (props) => {
     try {
       await axios.get("/api/generate?text=" + textValue).then(
         (response) => {
-
-          if (response.data.message === "ok") {
+          console.log(response)
+          if (response.status === 200) {
             const token = response.data.token;
             setQrCodeSrc(
               `https://react-qr-code-api.herokuapp.com/static/qr-code-${token}.png`
