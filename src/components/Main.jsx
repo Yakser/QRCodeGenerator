@@ -4,6 +4,9 @@ import React from "react";
 import axios from "axios";
 import { Switch, Route } from "react-router-dom";
 
+import ContentLoader from "react-content-loader"
+
+
 const Main = (props) => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [textValue, setTextValue] = React.useState("");
@@ -15,20 +18,18 @@ const Main = (props) => {
 
   async function onGenerateCode() {
     try {
+      setIsLoading(true)
       await axios
-        .get(
-          "https://react-qr-code-api.herokuapp.com/api/generate?text=" +
-            textValue
-        )
+        .get("https://react-qr-code-api.herokuapp.com/api/generate?text=" + textValue)
         .then((response) => {
-          console.log(response);
+          setIsLoading(false)
           if (response.status === 200) {
             const token = response.data.token;
             setQrCodeSrc(
               `https://react-qr-code-api.herokuapp.com/static/qr-code-${token}.png`
             );
           } else {
-            // TODO
+            setQrCodeSrc(qrCode);
             throw new Error("Code generation error");
           }
         });
@@ -45,7 +46,21 @@ const Main = (props) => {
           <h2>Generate QR-code</h2>
           <section className={styles.generateBlock}>
             <div className={styles.preview}>
-              <img src={qrCodeSrc} alt="" />
+              {isLoading ? (
+                <ContentLoader
+                  speed={2}
+                  width={400}
+                  height={400}
+                  viewBox="0 0 400 400"
+                  backgroundColor="#f3f3f3"
+                  foregroundColor="#ecebeb"
+                >
+                  <rect x="0" y="-1" rx="30" ry="30" width="400" height="400" />
+                </ContentLoader>
+              ) : (
+                <img src={qrCodeSrc} alt="" />
+              )}
+
               <input
                 type="text"
                 placeholder="Enter url"
@@ -61,10 +76,14 @@ const Main = (props) => {
             <article>
               <h3>
                 What is{" "}
-                <a href="https://en.wikipedia.org/wiki/QR_code" target="_blank" rel='noreferrer'>
+                <a
+                  href="https://en.wikipedia.org/wiki/QR_code"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   QR-code
                 </a>
-?
+                ?
               </h3>
               <p>
                 A QR code (abbreviated from Quick Response code) is a type of
