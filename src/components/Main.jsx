@@ -8,7 +8,7 @@ import ContentLoader from "react-content-loader"
 
 
 const Main = (props) => {
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [isLoading, setIsLoading] = React.useState(false);
   const [textValue, setTextValue] = React.useState("");
   const [qrCodeSrc, setQrCodeSrc] = React.useState(qrCode);
 
@@ -49,13 +49,13 @@ const Main = (props) => {
               {isLoading ? (
                 <ContentLoader
                   speed={2}
-                  width={400}
-                  height={400}
+                  width={300}
+                  height={300}
                   viewBox="0 0 400 400"
                   backgroundColor="#f3f3f3"
                   foregroundColor="#ecebeb"
                 >
-                  <rect x="0" y="-1" rx="30" ry="30" width="400" height="400" />
+                  <rect x="50" y="0" rx="30" ry="30" width="300" height="300" />
                 </ContentLoader>
               ) : (
                 <img src={qrCodeSrc} alt="" />
