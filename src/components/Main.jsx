@@ -13,9 +13,13 @@ const Main = (props) => {
 
   async function onGenerateCode() {
     try {
-      await axios.get("/api/generate?text=" + textValue).then(
-        (response) => {
-          console.log(response)
+      await axios
+        .get(
+          "https://react-qr-code-api.herokuapp.com/api/generate?text=" +
+            textValue
+        )
+        .then((response) => {
+          console.log(response);
           if (response.status === 200) {
             const token = response.data.token;
             setQrCodeSrc(
@@ -25,8 +29,7 @@ const Main = (props) => {
             // TODO
             throw new Error("Code generation error");
           }
-        }
-      );
+        });
     
     } catch(e) {
       console.log(e)
