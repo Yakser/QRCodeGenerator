@@ -13,16 +13,21 @@ const Main = (props) => {
 
   async function onGenerateCode() {
     try {
-      const obj = await axios.get("/api/generate?text=" + textValue);
-      if (obj.data.message === "ok") {
-        const token = obj.data.token;
-        setQrCodeSrc(
-          `https://react-qr-code-api.herokuapp.com/static/qr-code-${token}.png`
-        );
-      } else {
-        // TODO
-        throw new Error("Code generation error");
-      }
+      await axios.get("/api/generate?text=" + textValue).then(
+        (response) => {
+
+          if (response.data.message === "ok") {
+            const token = response.data.token;
+            setQrCodeSrc(
+              `https://react-qr-code-api.herokuapp.com/static/qr-code-${token}.png`
+            );
+          } else {
+            // TODO
+            throw new Error("Code generation error");
+          }
+        }
+      );
+    
     } catch(e) {
       alert(`Code generation failed ${e}`);
     }
