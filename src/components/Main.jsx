@@ -2,8 +2,8 @@ import styles from "./Main.module.scss";
 import qrCode from "../img/qr-code.svg";
 import React from "react";
 import axios from "axios";
-import { Switch, Route } from "react-router-dom";
-
+import { Switch, Route, useLocation } from "react-router-dom";
+import {useTransition, animated} from 'react-spring'
 import ContentLoader from "react-content-loader"
 
 
@@ -11,6 +11,8 @@ const Main = (props) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [textValue, setTextValue] = React.useState("");
   const [qrCodeSrc, setQrCodeSrc] = React.useState(qrCode);
+
+
 
   const onTextInput = (event) => {
     setTextValue(event.target.value);
@@ -39,92 +41,117 @@ const Main = (props) => {
     }
   }
 
-  return (
-    <main className={styles.main}>
-      <Switch>
-        <Route path="/" exact>
-          <h2>Generate QR-code</h2>
-          <section className={styles.generateBlock}>
-            <div className={styles.preview}>
-              {isLoading ? (
-                <ContentLoader
-                  className={styles.loader}
-                  speed={1}
-                  width="200"
-                  height="200"
-                  viewBox="0 0 200 200"
-                  backgroundColor="#ede9e9"
-                  foregroundColor="#f7f2f2"
-                >
-                  <rect
-                    x="0"
-                    y="0"
-                    rx="30"
-                    ry="30"
-                    width="200"
-                    height="200"
-                  />
-                </ContentLoader>
-              ) : (
-                <img src={qrCodeSrc} alt="" />
-              )}
+  const location = useLocation();
+  const transitions = useTransition(location, {
+    from: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+    },
+    leave: {
+      opacity: 0,
+    },
+  }); 
+  transitions(({ props, item, key }) => console.log(props, item, key))
 
-              <input
-                type="text"
-                placeholder="Enter url"
-                onChange={onTextInput}
-              />
-              <input type="submit" value="Generate" onClick={onGenerateCode} />
-            </div>
-          </section>
-        </Route>
-        <Route path="/usage" exact>
-          <h2>Usage of QR-codes</h2>
-          <section className={styles.usage}>
-            <article>
-              <h3>
-                What is{" "}
-                <a
-                  href="https://en.wikipedia.org/wiki/QR_code"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  QR-code
-                </a>
-                ?
-              </h3>
-              <p>
-                A QR code (abbreviated from Quick Response code) is a type of
-                matrix barcode (or two-dimensional barcode)
-              </p>
-              <p>
-                Using a QR code, you can encode any information, for example:
-                text, a phone number, a link to a website or a business card.
-              </p>
-            </article>
-            <article>
-              <h3>How to use?</h3>
-              <ul>
-                <li>Take a smartphone with a camera</li>
-                <li>Run the program to scan the code</li>
-                <li>Point the camera lens at the code</li>
-                <li>Get information!</li>
-              </ul>
-            </article>
-            <article>
-              <h3>Where it's used?</h3>
-              <p>
-                QR codes can be used for posting their images on the Internet,
-                drawing on business cards, T-shirts, advertising signs and much
-                more.
-              </p>
-            </article>
-          </section>
-        </Route>
-        <Route path="/about" exact>
-          <h2>About</h2>
-        </Route>
-      </Switch>
+  return (
+    <main className={styles.main} style={{ position: "relative" }}>
+      {transitions((props, item) => (
+        <animated.div style={props}>
+          <div style={{ position: "absolute", width: "100%", left: 0, top: 0 }}>
+            <Switch location={item}>
+              <Route path="/" exact>
+                <h2>Generate QR-code</h2>
+                <section className={styles.generateBlock}>
+                  <div className={styles.preview}>
+                    {isLoading ? (
+                      <ContentLoader
+                        className={styles.loader}
+                        speed={1}
+                        width="200"
+                        height="200"
+                        viewBox="0 0 200 200"
+                        backgroundColor="#ede9e9"
+                        foregroundColor="#f7f2f2"
+                      >
+                        <rect
+                          x="0"
+                          y="0"
+                          rx="30"
+                          ry="30"
+                          width="200"
+                          height="200"
+                        />
+                      </ContentLoader>
+                    ) : (
+                      <img src={qrCodeSrc} alt="" />
+                    )}
+
+                    <input
+                      type="text"
+                      placeholder="Enter url"
+                      onChange={onTextInput}
+                    />
+                    <input
+                      type="submit"
+                      value="Generate"
+                      onClick={onGenerateCode}
+                    />
+                  </div>
+                </section>
+              </Route>
+              <Route path="/usage" exact>
+                <h2>Usage of QR-codes</h2>
+                <section className={styles.usage}>
+                  <article>
+                    <h3>
+                      What is{" "}
+                      <a
+                        href="https://en.wikipedia.org/wiki/QR_code"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        QR-code
+                      </a>
+                      ?
+                    </h3>
+                    <p>
+                      A QR code (abbreviated from Quick Response code) is a type
+                      of matrix barcode (or two-dimensional barcode)
+                    </p>
+                    <p>
+                      Using a QR code, you can encode any information, for
+                      example: text, a phone number, a link to a website or a
+                      business card.
+                    </p>
+                  </article>
+                  <article>
+                    <h3>How to use?</h3>
+                    <ul>
+                      <li>Take a smartphone with a camera</li>
+                      <li>Run the program to scan the code</li>
+                      <li>Point the camera lens at the code</li>
+                      <li>Get information!</li>
+                    </ul>
+                  </article>
+                  <article>
+                    <h3>Where it's used?</h3>
+                    <p>
+                      QR codes can be used for posting their images on the
+                      Internet, drawing on business cards, T-shirts, advertising
+                      signs and much more.
+                    </p>
+                  </article>
+                </section>
+              </Route>
+              <Route path="/about" exact>
+                <h2>About</h2>
+              </Route>
+            </Switch>
+          </div>
+        </animated.div>
+      ))}
     </main>
   );
 };
