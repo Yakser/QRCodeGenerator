@@ -13,7 +13,7 @@ h2 {
     font-weight: 700;
 }
 
-.inputBlock {
+.generateBlock {
     background-color: white;
     border-radius: 32px;
     width: 500px;
@@ -70,14 +70,14 @@ h2 {
     .main {
         margin-top: 50px;
     }
-    .inputBlock {
+    .generateBlock {
         width: 400px;
         height: 400px;
     }
 }
 
 @media screen and (max-width: 445px) {
-    .inputBlock {
+    .generateBlock {
         width: 90vw;
         height: 90vw;
         margin: 25px 0;

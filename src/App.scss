@@ -1,12 +1,9 @@
 @import './reset.css';
-$bg: #f7f2f2;
-$black: #0d1117;
-$blue: #98d0ff;
-$pink: #ffc6d7;
+@import './variables.scss';
 body {
     background-color: $bg;
     padding: 50px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Raleway', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Raleway', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: $black;
@@ -37,7 +34,7 @@ input[type='submit'] {
 }
 
 @media screen and (max-width: 768px) {
- body {
-     padding: 25px;
- }
+    body {
+        padding: 25px;
+    }
 }

@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 header {
     display: flex;
     justify-content: space-between;
@@ -8,6 +10,7 @@ header {
     font-size: 36px;
     font-weight: bold;
     cursor: pointer;
+    color: $blue;
 }
 
 button {

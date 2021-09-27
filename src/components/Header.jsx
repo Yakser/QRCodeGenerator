@@ -5,7 +5,7 @@ const Header = (props) => {
   return (
     <header>
       <div className={styles.logo}>
-        <h2>QR's here</h2>
+        <h2>QRify</h2>
       </div>
       <Menu />
       <button>Contact</button>

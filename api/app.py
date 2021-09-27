@@ -14,10 +14,6 @@ PORT = os.environ.get('PORT')
 
 
 app = FastAPI()
-loop = asyncio.get_event_loop()
-
-app.mount("/static", StaticFiles(directory='./static'), name="static")
-storage = TokensStorage()
 
 origins = [
     "https://react-qrcode-generator.herokuapp.com",
@@ -31,6 +27,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+loop = asyncio.get_event_loop()
+
+app.mount("/static", StaticFiles(directory='./static'), name="static")
+storage = TokensStorage()
 
 
 async def clean_storage(token):
