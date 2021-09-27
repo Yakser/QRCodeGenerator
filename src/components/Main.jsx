@@ -29,6 +29,7 @@ const Main = (props) => {
       );
     
     } catch(e) {
+      console.log(e)
       alert(`Code generation failed ${e}`);
     }
   }
