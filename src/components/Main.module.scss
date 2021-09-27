@@ -36,7 +36,8 @@ section {
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        img {
+        
+        img, .loader {
             width: 50%;
             min-height: 100px;
             cursor: pointer;

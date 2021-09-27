@@ -48,14 +48,22 @@ const Main = (props) => {
             <div className={styles.preview}>
               {isLoading ? (
                 <ContentLoader
-                  speed={2}
-                  width={300}
-                  height={300}
-                  viewBox="0 0 400 400"
-                  backgroundColor="#f3f3f3"
-                  foregroundColor="#ecebeb"
+                  className={styles.loader}
+                  speed={1}
+                  width="200"
+                  height="200"
+                  viewBox="0 0 200 200"
+                  backgroundColor="#ede9e9"
+                  foregroundColor="#f7f2f2"
                 >
-                  <rect x="50" y="0" rx="30" ry="30" width="300" height="300" />
+                  <rect
+                    x="0"
+                    y="0"
+                    rx="30"
+                    ry="30"
+                    width="200"
+                    height="200"
+                  />
                 </ContentLoader>
               ) : (
                 <img src={qrCodeSrc} alt="" />
