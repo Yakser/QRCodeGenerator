@@ -43,7 +43,7 @@ const Main = (props) => {
       <Switch>
         <Route path="/" exact>
           <h2>Generate QR-code</h2>
-          <div className={styles.generateBlock}>
+          <section className={styles.generateBlock}>
             <div className={styles.preview}>
               <img src={qrCodeSrc} alt="" />
               <input
@@ -53,13 +53,19 @@ const Main = (props) => {
               />
               <input type="submit" value="Generate" onClick={onGenerateCode} />
             </div>
-          </div>
+          </section>
         </Route>
         <Route path="/usage" exact>
           <h2>Usage of QR-codes</h2>
-          <section>
+          <section className={styles.usage}>
             <article>
-              <h3>What is QR-code?</h3>
+              <h3>
+                What is{" "}
+                <a href="https://en.wikipedia.org/wiki/QR_code" target="_blank" rel='noreferrer'>
+                  QR-code
+                </a>
+?
+              </h3>
               <p>
                 A QR code (abbreviated from Quick Response code) is a type of
                 matrix barcode (or two-dimensional barcode)
@@ -81,7 +87,7 @@ const Main = (props) => {
             <article>
               <h3>Where it's used?</h3>
               <p>
-                QR codes can be used for: posting their images on the Internet,
+                QR codes can be used for posting their images on the Internet,
                 drawing on business cards, T-shirts, advertising signs and much
                 more.
               </p>

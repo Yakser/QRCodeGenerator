@@ -8,7 +8,9 @@ const Header = (props) => {
         <h2>QRify</h2>
       </div>
       <Menu />
-      <button>Contact</button>
+      <button>
+        <a href="mailto:sergeyyaksanov@yandex.ru">Contact</a>
+      </button>
     </header>
   );
 };

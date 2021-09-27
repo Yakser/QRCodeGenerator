@@ -14,6 +14,10 @@ body {
     margin: 0 auto;
 }
 
+a {
+    color: $black;
+}
+
 input[type='submit'] {
     outline: none;
     width: max-content;
