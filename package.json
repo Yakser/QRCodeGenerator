@@ -1,6 +1,5 @@
 {
   "name": "react-qrcode",
-  "proxy": "https://react-qr-code-api.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
