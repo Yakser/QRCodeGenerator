@@ -5,7 +5,7 @@ import qrCode from "../img/qr-code.svg";
 import axios from "axios";
 const Generate = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [textValue, setTextValue] = useState("");
   const [qrCodeSrc, setQrCodeSrc] = useState(qrCode);
 
