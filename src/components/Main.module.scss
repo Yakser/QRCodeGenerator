@@ -36,12 +36,12 @@ section {
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        
-        img, .loader {
+        img,
+        .loader {
             width: 50%;
             min-height: 100px;
             cursor: pointer;
-            transition: transform .15s ease-in;
+            transition: transform .15s cubic-bezier(0, 0, .5, 1);
             &:hover {
                 transform: scale(1.05);
             }
@@ -68,6 +68,32 @@ section {
                 opacity: 0.5;
             }
         }
+        .btn {
+            width: 35px;
+            height: 35px;
+            font-size: 0;
+            border: 2px solid $pink;
+            background-color: $pink;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.5);
+            transition: .2s cubic-bezier(0, 0, .5, 1);
+            margin-left: auto;
+            &:hover,
+            &:focus {
+                box-shadow: 0px 0px 0px 5px rgba(255, 198, 215, .5);
+            }
+            svg {
+                width: 18px;
+                height: 18px;
+                path {
+                    fill: white;
+                }
+            }
+        }
     }
     article {
         // border: 1px solid red;
@@ -77,6 +103,12 @@ section {
             text-align: left;
             line-height: 35px;
             margin: 5px 0;
+            a {
+                transition: opacity .2s cubic-bezier(0, 0, .5, 1);
+                &:hover {
+                    opacity: .6;
+                }
+            }
         }
         a {
             color: $blue;
@@ -117,6 +149,29 @@ section {
     .generateBlock {
         width: 400px;
         height: 400px;
+        .preview {
+            input[type='submit'] {
+                width: 115px;
+            }
+            .btn {
+                margin: 0 auto;
+                order: 1;
+                width: max-content;
+                border-radius: 10000px;
+                padding: 10px 15px;
+                width: 115px;
+                a {
+                    font-size: 16px;
+                    color: white;
+                }
+                svg {
+                    display: none;
+                }
+            }
+        }
+    }
+    section {
+        padding: 30px;
     }
     section.usage {
         width: 500px;
@@ -144,5 +199,25 @@ section {
         height: 90vw;
         margin: 25px 0;
         padding: 25px;
+        .preview {
+            input[type='submit'] {
+                width: 115px;
+            }
+            .btn {
+                margin: 0 auto;
+                order: 1;
+                width: max-content;
+                border-radius: 10000px;
+                padding: 10px 15px;
+                width: 115px;
+                a {
+                    font-size: 16px;
+                    color: white;
+                }
+                svg {
+                    display: none;
+                }
+            }
+        }
     }
 }

@@ -18,7 +18,7 @@
         &.active {
             background-color: white;
         }
-        &:hover {
+        &:not(.active):hover {
             opacity: .6;
         }
     }

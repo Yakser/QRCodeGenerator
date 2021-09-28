@@ -1,5 +1,4 @@
 @import '../variables.scss';
-
 header {
     display: flex;
     justify-content: space-between;
@@ -22,7 +21,7 @@ button {
     cursor: pointer;
     padding: 5px 15px;
     border-radius: 10000px;
-    transition: .2s ease-in;
+    transition: .5s cubic-bezier(0, 0, .5, 1);
     &:hover {
         opacity: .5;
     }
