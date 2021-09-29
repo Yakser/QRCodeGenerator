@@ -37,10 +37,10 @@ const Main = (props) => {
                 <h2>Usage of QR-codes</h2>
                 <Usage />
               </Route>
-              <Route path="/about" exact>
-                <h2>About</h2>
+              {/* <Route path="/about" exact>
+                <h2>About </h2>
                 <About />
-              </Route>
+              </Route> */}
             </Switch>
           </div>
         </animated.div>

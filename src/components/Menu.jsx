@@ -11,9 +11,9 @@ const Menu = (props) => {
       <NavLink to="/usage" className={styles.item} activeClassName={styles.active} exact>
         <span>Usage</span>
       </NavLink>
-      <NavLink to="/about" className={styles.item} activeClassName={styles.active}  exact>
+      {/* <NavLink to="/about" className={styles.item} activeClassName={styles.active}  exact>
         <span>About</span>
-      </NavLink>
+      </NavLink> */}
     </nav>
   );
 };
