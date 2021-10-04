@@ -3,12 +3,10 @@ import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { useTransition, animated } from "react-spring";
 import Generate from './Generate';
-import About from './About';
 import Usage from './Usage';
 
 const Main = (props) => {
   
-
   const location = useLocation();
   const transitions = useTransition(location, {
     from: {
@@ -21,7 +19,6 @@ const Main = (props) => {
       opacity: 0,
     },
   });
-  transitions(({ props, item, key }) => console.log(props, item, key));
 
   return (
     <main className={styles.main} style={{ position: "relative" }}>
@@ -37,10 +34,6 @@ const Main = (props) => {
                 <h2>Usage of QR-codes</h2>
                 <Usage />
               </Route>
-              {/* <Route path="/about" exact>
-                <h2>About </h2>
-                <About />
-              </Route> */}
             </Switch>
           </div>
         </animated.div>

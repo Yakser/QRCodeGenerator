@@ -1,7 +1,7 @@
 import styles from "./Header.module.scss";
 import Menu from "./Menu";
 
-const Header = (props) => {
+const Header = () => {
   return (
     <header>
       <div className={styles.logo}>

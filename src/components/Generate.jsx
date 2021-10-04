@@ -58,21 +58,22 @@ const Generate = () => {
         ) : (
           <>
             <img src={qrCodeSrc} alt="QR-code" />
-            { isLoaded &&   <div className={styles.btn}>
-              <a href={qrCodeSrc} download="qr-code.png">
-                Download
-                <svg
-                  id="Слой_1"
-                  data-name="Слой 1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <title>Download</title>
-                  <path d="M232.39,502.22a33.39,33.39,0,0,0,47.22,0h0L405.54,376.29a33.39,33.39,0,0,0-47.22-47.22L289.39,398V33.39a33.39,33.39,0,1,0-66.78,0V398l-68.93-68.93a33.39,33.39,0,0,0-47.22,47.22Z" />
-                </svg>
-              </a>
-            </div>
-            }
+            {isLoaded && (
+              <div className={styles.btn}>
+                <a href={qrCodeSrc} download="qr-code.png">
+                  Download
+                  <svg
+                    id="Слой_1"
+                    data-name="Слой 1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <title>Download</title>
+                    <path d="M232.39,502.22a33.39,33.39,0,0,0,47.22,0h0L405.54,376.29a33.39,33.39,0,0,0-47.22-47.22L289.39,398V33.39a33.39,33.39,0,1,0-66.78,0V398l-68.93-68.93a33.39,33.39,0,0,0-47.22,47.22Z" />
+                  </svg>
+                </a>
+              </div>
+            )}
           </>
         )}
 
