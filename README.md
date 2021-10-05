@@ -6,13 +6,13 @@
 ## Stack
 
 ### Frontend
-* React
+* **React**
 * * `react-router-dom` - routing between pages
 * * `react-spring` - animations
 * * `node-sass` - scss modules
 * SCSS / SCSS modules 
 
 ### Backend
-* FastAPI
+* **FastAPI**
 * * `qrcode` - library which generates QR-codes
 
