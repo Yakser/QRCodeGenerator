@@ -7,9 +7,9 @@
 
 ### Frontend
 * React
-* * react-router-dom - routing between pages
-* * react-spring - animations
-* * node-sass - scss modules
+* * `react-router-dom` - routing between pages
+* * `react-spring` - animations
+* * `node-sass` - scss modules
 * SCSS / SCSS modules 
 
 ### Backend
