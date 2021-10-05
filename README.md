@@ -14,4 +14,5 @@
 
 ### Backend
 * FastAPI
+* * `qrcode` - library which generates QR-codes
 
