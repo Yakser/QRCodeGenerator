@@ -15,4 +15,3 @@
 ### Backend
 * **FastAPI**
 * * `qrcode` - library for making QR-codes
-
