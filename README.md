@@ -6,7 +6,7 @@
 ## Stack
 
 ### Frontend
-* ReactJs
+* React
 * * react-router-dom - routing between pages
 * * react-spring - animations
 * * node-sass - scss modules
